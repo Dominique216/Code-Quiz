@@ -1,0 +1,3 @@
+/* right now there is a class on all the questions of none. This idea is to create a css proptery that tagets anyhthing with a class of none on it and give it a display of none. Then ill use the javascript to add or take away the class of none so that  when the start quiz next/ question button is pressed, the class will be none will be taken away from the next section and added to the current questiion */ 
+
+/* or i can use a data state od shown/hidden and use javascript to add a display of none to the section name taht I want to go away?? */

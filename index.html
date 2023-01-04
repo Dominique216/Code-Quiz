@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Quiz</title>
+</head>
+<body>
+    <header>
+        <p class="high-scores"><a href="highscores.html">View Highscores</a></p>
+        <p class="time">Time: 0</p>
+    </header>
+    <main>
+        <section class="welcome-page " data-state="shown">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/times by ten seconds!</p>
+            <button>Start Quiz</button>
+        </section>
+        <form>
+            <section class="Q1 none" data-state="hidden">
+                <h1>Commonly used data types DO NOT incdule:</h1>
+                <input type="radio" id="strings" name="Q1" value="strings">
+                <label for="strings">strings</label>
+                <input type="radio" id="booleans" name="Q1" value="booleans">
+                <label for="booleans">booleans</label>
+                <input type="radio" id="alerts" name="Q1" value="alerts">
+                <label for="alerts">alerts</label>
+                <input type="radio" id="numbers" name="Q1" value="numbers">
+                <label for="numbers">numbers</label>
+            </section>
+            <section class="Q2 none" data-state="hidden">
+                <h1>The condition in an if / else statement is enclosed within: </h1>
+                <input type="radio" id="quotes" name="Q2" value="quotes">
+                <label for="quotes">quotes</label>
+                <input type="radio" id="curly-brackets" name="Q2" value="curly-brackets">
+                <label for="curly-brackets">curly brackets</label>
+                <input type="radio" id="parentheses" name="Q2" value="parentheses">
+                <label for="parentheses">parentheses</label>
+                <input type="radio" id="square-brackets" name="Q2" value="square-brackets">
+                <label for="square-brackets">square-brackets</label>
+            </section>
+            <section class="Q3 none" data-state="hidden">
+                <h1>Arrays in JavaScript can be used to store:</h1>
+                <input type="radio" id="numbers-and-strings" name="Q3" value="numbers-and-strings">
+                <label for="numbers-and-strings">numbers and strings</label>
+                <input type="radio" id="other-arrays" name="Q3" value="other-arrays">
+                <label for="other-arrays">other arrays</label>
+                <input type="radio" id="booleans" name="Q3" value="booleans">
+                <label for="booleans">booleans</label>
+                <input type="radio" id="all-of-the-above" name="Q3" value="all-of-the-above">
+                <label for="all-of-the-above">all of the above</label>
+            </section>
+            <section class="Q4 none" data-state="hidden">
+                <h1>String values must be enclosed within <span>"   "</span><!-- see about ading text decoration in span to get an underline--> when being assigned to variables.</h1>
+                <input type="radio" id="commas" name="Q4" value="commas">
+                <label for="commas">commas</label>
+                <input type="radio" id="curly-brackets" name="Q4" value="curly-brackets">
+                <label for="curly-brackets">curly brackets</label>
+                <input type="radio" id="quotes" name="Q4" value="quotes">
+                <label for="quotes">quotes</label>
+                <input type="radio" id="parentheses" name="Q4" value="parentheses">
+                <label for="parentheses">parentheses</label>
+            </section>
+            <section class="Q5 none" data-state="hidden">
+                <h1>A very userful tool used during devlopment and debugging for printing content to the debugger is:</h1>
+                <input type="radio" id="JavaScript" name="Q5" value="JavaScript">
+                <label for="JavaScript">JavaScript</label>
+                <input type="radio" id="terminal/bash" name="Q5" value="terminal/bash">
+                <label for="terminal/bash">terminal / bash</label>
+                <input type="radio" id="for-loops" name="Q5" value="for-loops">
+                <label for="for-loops">for-loops</label>
+                <input type="radio" id="console-log" name="Q5" value="console-log">
+                <label for="console-log">console-log</label>
+            </section>
+        </form>
+       
+    </main>
+    <!-- need constant timer counter in the right top corner -->
+    
+    <!-- need wleomce page with h1, p, and button element -->
+    <!-- need at least 5 question sections each with a data-answer holding the correct answer -->
+</body>
+</html>
