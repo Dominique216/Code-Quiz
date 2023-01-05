@@ -35,6 +35,7 @@ var Q4 = document.getElementById('Q4');
 var buttonFour = document.querySelectorAll('.buttonFour')
 var Q5 = document.getElementById('Q5');
 var buttonFive = document.querySelectorAll('.buttonFive')
+var end = document.getElementById("end")
 
 // selecets the time element from the Html and sets the start times to 75 secs
 var timeEl = document.getElementById('time')
@@ -94,14 +95,33 @@ buttonFour.forEach((item) => {
     })
 })
 
-// buttonOne.forEach((item) => {
-//     item.addEventListener('click', function(event){
-//         event.preventDefault();
-//         if(Q5.classList.contains('none') === false) {
-//             Q5.classList.add('none')
-//             Q2.classList.remove('none')
-//         } 
-//     })
-// })
+
+// this function will display your final score once you answer all the questions
+var finalScore = document.getElementById('final-score')
+
+function Score() {
+    finalScore.textContent = "Your Final Score is " + timeLeft;
+    clearInterval(timerInterval)
+}
+
+buttonFive.forEach((item) => {
+    item.addEventListener('click', function(event){
+        event.preventDefault();
+        if(Q5.classList.contains('none') === false) {
+            Q5.classList.add('none')
+            end.classList.remove('none')
+            Score()
+        } 
+    })
+})
+
+
+
+
+
+
 
 // define right and wrong answers using data-answer from the HTML and create a function that will take ten seconds off the time if the answer is wrong 
+
+
+// need the form to submut to the highscores html. and need it to save on the local storage

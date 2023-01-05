@@ -18,6 +18,10 @@ a {
     color: var(--purple);
 }
 
+#goback {
+    color: white;
+}
+
 a:hover {
     color: var(--lightpurple)
 }
@@ -58,5 +62,14 @@ button:hover {
 
 span{
     text-decoration: underline;
+}
+
+.submit{
+  display:inline;  
+}
+
+#submit{
+    
+    color:white
 }
 
