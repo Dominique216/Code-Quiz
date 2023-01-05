@@ -21,11 +21,8 @@
     // append score values to page
 
 
-    // when a button is clicked, i need to add the class of none to the current section and remove it from teh next section
-        // a event lister on add button elements that
 
-
-// selects all button elements from the HTML
+// selects all button elements and the queestion sections from the HTML
 var buttonZero = document.getElementById('buttonZero');
 var welcomePage = document.getElementById('welcome-page');
 var Q1 = document.getElementById('Q1');
@@ -39,8 +36,21 @@ var buttonFour = document.querySelectorAll('.buttonFour')
 var Q5 = document.getElementById('Q5');
 var buttonFive = document.querySelectorAll('.buttonFive')
 
+// selecets the time element from the Html and sets the start times to 75 secs
+var timeEl = document.getElementById('time')
+var timeLeft = 75
 
+
+// this changes the display of the home page to none and starts the timer on the quiz
 buttonZero.addEventListener('click', function() {
+    var timerInterval = setInterval(function() {
+        timeLeft--;
+        timeEl.textContent = "Time: " + timeLeft;
+
+        if(timeLeft === 0) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
     if(welcomePage.classList.contains('none') === false) {
         welcomePage.classList.add('none')
         Q1.classList.remove('none')
@@ -93,3 +103,5 @@ buttonFour.forEach((item) => {
 //         } 
 //     })
 // })
+
+// define right and wrong answers using data-answer from the HTML and create a function that will take ten seconds off the time if the answer is wrong 

@@ -22,7 +22,7 @@ a:hover {
     color: var(--lightpurple)
 }
 
-.time{
+#time{
     position: absolute;
     top:0;
     right:3%;
