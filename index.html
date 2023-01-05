@@ -13,52 +13,53 @@
         <p class="time">Time: 0</p>
     </header>
     <main>
-        <section class="welcome-page none" data-state="shown">
+        <section id ="welcome-page" class="welcome-page">
             <h1>Coding Quiz Challenge</h1>
             <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/times by ten seconds!</p>
-            <button>Start Quiz</button>
+            <button id="buttonZero">Start Quiz</button>
         </section>
         <form>
-            <section class="Q1 none" data-answer="3.alerts" data-state="hidden">
+            <section id="Q1" class="Q1 none" data-answer="3.alerts">
                 <h1>Commonly used data types DO NOT incdule:</h1>
                 <div class="answers">   
-                     <button>1.strings</button>
-                     <button>2.booleans</button>
-                     <button>3.alerts</button>
-                     <button>4.numbers</button>
+                     <button class="buttonOne">1.strings</button>
+                     <button class="buttonOne">2.booleans</button>
+                     <button class="buttonOne">3.alerts</button>
+                     <button class="buttonOne">4.numbers</button>
                 </div>
                 
             </section>
-            <section class="Q2 none" data-answer="3.parentheses" data-state="hidden">
+            <section id="Q2" class="Q2 none" data-answer="3.parentheses">
                 <h1>The condition in an if / else statement is enclosed within <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>.</h1>
-                <button>1.quotes</button>
-                <button>2.curly brackets</button>
-                <button>3.parentheses</button>
-                <button>4.square brackets</button>
+                <button class="buttonTwo">1.quotes</button>
+                <button class="buttonTwo">2.curly brackets</button>
+                <button class="buttonTwo">3.parentheses</button>
+                <button class="buttonTwo">4.square brackets</button>
             </section>
-            <section class="Q3 none" data-answer="4.all of the above" data-state="hidden">
+            <section id = "Q3" class="Q3 none" data-answer="4.all of the above">
                 <h1>Arrays in JavaScript can be used to store <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>.</h1>  
-                <button>1.numbersnand strings</button>
-                <button>2.other arrays</button>
-                <button>3.booleans</button>
-                <button>4.all of the above</button>
+                <button class="buttonThree">1.numbersnand strings</button>
+                <button class="buttonThree">2.other arrays</button>
+                <button class="buttonThree">3.booleans</button>
+                <button class="buttonThree">4.all of the above</button>
             </section>
-            <section class="Q4 none" data-answer="3.quotes" data-state="hidden">
+            <section id = "Q4" class="Q4 none" data-answer="3.quotes">
                 <h1>String values must be enclosed within <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span> when being assigned to variables.</h1>
-                <button>1.commas</button>
-                <button>2.curly brackets</button>
-                <button>3.quotes</button>
-                <button>4.parentheses</button>
+                <button class="buttonFour">1.commas</button>
+                <button class="buttonFour">2.curly brackets</button>
+                <button class="buttonFour">3.quotes</button>
+                <button class="buttonFour">4.parentheses</button>
             </section>
-            <section class="Q5" data-answer="4.console log" data-state="hidden">
+            <section id="Q5" class="Q5 none" data-answer="4.console log">
                 <h1>A very userful tool used during devlopment and debugging for printing content to the debugger is:</h1>
-                <button>1.JavaScript</button>
-                <button>2.terminal / bash</button>
-                <button>3.for loops</button>
-                <button>4.console log</button>
+                <button class="buttonFive">1.JavaScript</button>
+                <button class="buttonFive">2.terminal / bash</button>
+                <button class="buttonFive">3.for loops</button>
+                <button class="buttonFive">4.console log</button>
             </section>
         </form>
        
     </main>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
