@@ -25,16 +25,6 @@
 // selects all button elements and the queestion sections from the HTML
 var buttonZero = document.getElementById('buttonZero');
 var welcomePage = document.getElementById('welcome-page');
-var Q1 = document.getElementById('Q1');
-var buttonOne = document.querySelectorAll('.buttonOne')
-var Q2 = document.getElementById('Q2');
-var buttonTwo = document.querySelectorAll('.buttonTwo')
-var Q3 = document.getElementById('Q3');
-var buttonThree = document.querySelectorAll('.buttonThree')
-var Q4 = document.getElementById('Q4');
-var buttonFour = document.querySelectorAll('.buttonFour')
-var Q5 = document.getElementById('Q5');
-var buttonFive = document.querySelectorAll('.buttonFive')
 var end = document.getElementById("end")
 
 // selecets the time element from the Html and sets the start times to 75 secs
@@ -49,7 +39,9 @@ buttonZero.addEventListener('click', function() {
         timeEl.textContent = "Time: " + timeLeft;
 
         if(timeLeft === 0) {
-            clearInterval(timerInterval);
+            clearInterval(timerInterval); 
+            end.classList.remove('none'); 
+            Score(); 
         }
     }, 1000);
     if(welcomePage.classList.contains('none') === false) {
@@ -57,71 +49,68 @@ buttonZero.addEventListener('click', function() {
         Q1.classList.remove('none')
     }
 })
-buttonOne.forEach((item) => {
-    item.addEventListener('click', function(event){
-        event.preventDefault();
-        if(Q1.classList.contains('none') === false) {
-            Q1.classList.add('none')
-            Q2.classList.remove('none')
-        } 
-    })
-})
-buttonTwo.forEach((item) => {
-    item.addEventListener('click', function(event){
-        event.preventDefault();
-        if(Q2.classList.contains('none') === false) {
-            Q2.classList.add('none')
-            Q3.classList.remove('none')
-        } 
-    })
-})
-buttonThree.forEach((item) => {
-    item.addEventListener('click', function(event){
-        event.preventDefault();
-        if(Q3.classList.contains('none') === false) {
-            Q3.classList.add('none')
-            Q4.classList.remove('none')
-        } 
-    })
-})
 
-buttonFour.forEach((item) => {
-    item.addEventListener('click', function(event){
-        event.preventDefault();
-        if(Q4.classList.contains('none') === false) {
-            Q4.classList.add('none')
-            Q5.classList.remove('none')
-        } 
-    })
-})
 
+function wrongAnswer() {
+        timeLeft = timeLeft-10
+        timeEl.textContent = "Time: " + timeLeft;  
+}
+
+
+var questionButtons = document.querySelectorAll(".QB")
+var questionSection = document.querySelectorAll(".QS")
 
 // this function will display your final score once you answer all the questions
 var finalScore = document.getElementById('final-score')
 
 function Score() {
     finalScore.textContent = "Your Final Score is " + timeLeft;
-    clearInterval(timerInterval)
+    // clearInterval(timerInterval)
 }
 
-buttonFive.forEach((item) => {
+
+questionButtons.forEach(item => {
     item.addEventListener('click', function(event){
         event.preventDefault();
-        if(Q5.classList.contains('none') === false) {
-            Q5.classList.add('none')
-            end.classList.remove('none')
-            Score()
-        } 
+        if(item.classList.contains('correct') === false) {
+             wrongAnswer();
+        }
+        for(let i = 0; i < questionSection.length; i++ ) {
+             var question = questionSection[i]
+            if(question.classList.contains('none') === false) {
+                question.classList.add('none')
+                for(let j = [i+1]; j < questionSection.length; j++) {
+                    var nextQ = questionSection[j]
+                    var lastQ = questionSection[questionSection.length-1]
+                     if(nextQ === lastQ){
+                        Score()
+                        return lastQ.classList.remove('none')
+                     } else {
+                       return  nextQ.classList.remove('none')
+                     }
+                }
+
+            }
+        }
+
     })
 })
 
+var displayScore = document.querySelector(".score-display")
+var submit = document.querySelector('.submit')
+var initials = document.getElementById('initals')
 
+var highScore = {
+    'initals': initials.value,
+    'score': finalScore.value
+}
 
+submit.addEventListener('click', function(event){
+    event.preventDefault() 
 
-
-
-
-// define right and wrong answers using data-answer from the HTML and create a function that will take ten seconds off the time if the answer is wrong 
+    window.location.assign("./highscores.html")
+    
+})
 
 
 // need the form to submut to the highscores html. and need it to save on the local storage
