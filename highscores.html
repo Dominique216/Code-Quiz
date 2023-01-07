@@ -7,11 +7,20 @@
     <link rel="stylesheet" href="./assets/styles.css"> 
     <title>View Highscores</title>
 </head>
-<body>
-    <h1>Highscores</h1>
-    <p class="score-display"></p>
-    <button><a id="goback" href="index.html">Go Back</a></button>
-    <button>Clear Highscores</button>
+    <h1 id="hsTitle">Highscores</h1>
+    <div class="scoreEl">
+        <p class="playerLabel">Player Initials:</p><br>
+        <p class="initials-display"></p>
+        <p class="scoreLabel">Player Score:</p><br>
+        <p class="score-display"></p>
+    </div>
     
+    <div class="hs-buttons">
+        <button id="goback"><a id="goback" href="index.html">Go Back</a></button>
+        <button id="clear">Clear Highscores</button>
+    </div>
+    
+    
+    <script src="./assets/script2.js"></script>
 </body>
 </html>

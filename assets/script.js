@@ -1,33 +1,12 @@
-// User is present with at least 5 quesitons - array of objects
-    // Format for quesitons??
-        // Object that contains {question: string, choices: array, answer: string}
-        // Display question - loop (move one by one though question object)
-        // append question
-        // append choices array
 
-// use rselects an anser(button, radio, checkboxes) data-answer = ""
-    // click event is on the parent container (not the acutaly buttons), so you can resuse the click function
-    // how to know which element was clicked(event.target)=> tells the exact element was click (a, b, c, d)
-    // if the answer is correct display next question acess of questions object (compare to the data answer to see if the right answer matches)
-    // dont have to append the correct/worng oat the bottom of the page
-    // if the answer is correct display next question
-    // if answer is inccort add 15 sec to score and display next quesiton
-
-    // When all quesitons are answered display form to submit initals
-    // save fore values and initals to local storage
-
-// change to highsores HTML (try using window.location(href="new html"))
-    // read values rom localstorage
-    // append score values to page
-
-
-
-// selects all button elements and the queestion sections from the HTML
+// selects all the button elements and the queestion sections from the HTML
 var buttonZero = document.getElementById('buttonZero');
 var welcomePage = document.getElementById('welcome-page');
 var end = document.getElementById("end")
-
-// selecets the time element from the Html and sets the start times to 75 secs
+var questionButtons = document.querySelectorAll(".QB")
+var questionSection = document.querySelectorAll(".QS")
+var finalScore = document.getElementById('final-score')
+// selecets the time element from the Html and sets the start time to 75 secs
 var timeEl = document.getElementById('time')
 var timeLeft = 75
 
@@ -37,8 +16,14 @@ buttonZero.addEventListener('click', function() {
     var timerInterval = setInterval(function() {
         timeLeft--;
         timeEl.textContent = "Time: " + timeLeft;
-
         if(timeLeft === 0) {
+            for(let i=0; i < questionSection.length; i++){
+                var  timeOutQ = questionSection[i];
+                if(timeOutQ.classList.contains('none') === false) {
+                    timeOutQ.classList.add('none')
+                    end.classList.remove('none')
+                }
+            }
             clearInterval(timerInterval); 
             end.classList.remove('none'); 
             Score(); 
@@ -50,25 +35,19 @@ buttonZero.addEventListener('click', function() {
     }
 })
 
-
+// this function will take 10 secions off the the time if you hit the wrong answer
 function wrongAnswer() {
         timeLeft = timeLeft-10
         timeEl.textContent = "Time: " + timeLeft;  
 }
 
-
-var questionButtons = document.querySelectorAll(".QB")
-var questionSection = document.querySelectorAll(".QS")
-
-// this function will display your final score once you answer all the questions
-var finalScore = document.getElementById('final-score')
-
+// This function will set your final score at the end of the quiz
 function Score() {
-    finalScore.textContent = "Your Final Score is " + timeLeft;
-    // clearInterval(timerInterval)
+    finalScore.textContent = timeLeft;
 }
 
 
+// this function adds an event listener to each button, then it checks if the button click was the right answer, then it runs though the question sections and will add a class of none to the current section and remove a class of none from the next section, so that only one question displays at a time. 
 questionButtons.forEach(item => {
     item.addEventListener('click', function(event){
         event.preventDefault();
@@ -96,21 +75,29 @@ questionButtons.forEach(item => {
     })
 })
 
-var displayScore = document.querySelector(".score-display")
+// this grabs the submit button and the initals going into the input
 var submit = document.querySelector('.submit')
 var initials = document.getElementById('initals')
 
-var highScore = {
-    'initals': initials.value,
-    'score': finalScore.value
-}
+// this function will get the last score and initals added and set a new score and save it to the local storage
+function getHighScores() {
+    var lastScore = localStorage.getItem('lastScore');
+    var newScoreList = [];
+    if(lastScore) {
+        newScoreList = JSON.parse(lastScore);
+    }
+    newScoreList.push({name: initials.value, score: finalScore.textContent});
+    localStorage.setItem('lastScore', JSON.stringify(newScoreList))
+} 
 
+//   this function runs the getHighScores function and opens the highscores.html when the sumbit button is pressed.
 submit.addEventListener('click', function(event){
-    event.preventDefault() 
-
+    event.preventDefault(); 
+    getHighScores();
+    // getLastHighScore();
     window.location.assign("./highscores.html")
     
 })
 
 
-// need the form to submut to the highscores html. and need it to save on the local storage
+// problems: 1. If the time gets to zero, the display score page comes up, but the current question doesnt go away

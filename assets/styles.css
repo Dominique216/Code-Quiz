@@ -1,31 +1,33 @@
-/* right now there is a class on all the questions of none. This idea is to create a css proptery that tagets anyhthing with a class of none on it and give it a display of none. Then ill use the javascript to add or take away the class of none so that  when the start quiz next/ question button is pressed, the class will be none will be taken away from the next section and added to the current questiion */ 
 
-/* or i can use a data state od shown/hidden and use javascript to add a display of none to the section name taht I want to go away?? */
-
-
-/* this class controls which section is on display and which sections are hidden */
+/* holds the color vaiables */
 :root {
     --purple: purple;
     --lightpurple: rgba(239, 102, 239, 0.677);
 }
 
+/* will help control what is being schown on the screen */
 .none {
     display:none;
 }
 
+/* all anchor elements */
 a {
     text-decoration: none;
     color: var(--purple);
 }
 
+/* sepcically target the goback button on the highscores HTML */
 #goback {
     color: white;
 }
 
+
+/* all a hover elements */
 a:hover {
     color: var(--lightpurple)
 }
 
+/* target the timer in the top right corner */
 #time{
     position: absolute;
     top:0;
@@ -41,10 +43,11 @@ section {
     margin-left: 25%;
     text-align: left;
 }
+
 h1 {
     font-size: 1.5rem;
 }
-
+/* targets all button elements */
 button {
     font-size: 1.05rem;
     display: block;
@@ -56,24 +59,66 @@ button {
     border-radius: 4px;
 }
 
+/* sets the volor of all button hover */
 button:hover {
     background-color: var(--lightpurple);
 }
 
+
+/* add the black underline in some of the quesitons */
 span{
     text-decoration: underline;
 }
 
+
+/* makes the sumbit button inline with the text box */
 .submit{
   display:inline;  
 }
 
+/* overrides the anchor element so the text color is white */
 #submit{
     
     color:white
 }
 
-.textarea{
-    height: 1.05rem;
+
+/* sizes up the font of the final score */
+#final-score {
+    font-size: 1.25rem;
+}
+
+/* center the title of the Highscore HTML */
+#hsTitle {
+    text-align: center;
+}
+/* Makes the info on the highscore HTML flex and centers it on the screen  */
+.scoreEl{
+    width: 100%;
+    display: inline-flex;
+    margin-left: 40%;
+}
+
+/* targets the initals input */
+.initials-display {
+    width: 2.5vw;
+    margin-top: 3%;
+}
+
+/* targets the score calculated */
+.score-display {
+    margin-top: 3%;
+    width: 1.5vw;
+
+   
+}
+
+/* positions the buttons on the highscores HTML page */
+.hs-buttons{
+    width: 100%;
+    display:inline-flex;
+    margin-top: 5%;
+    margin-left:38%; 
+    gap: 5%
 }
 
