@@ -9,7 +9,7 @@ This is a timed Coding Quiz. Once the start quiz button is pressed, the timer in
 - [License](#license)
 
 ## Getting Started
-Vist the deployed GitHub page [here]()
+Vist the deployed GitHub page [here](https://dominique216.github.io/Code-Quiz/)
 ## Installation
 1. Copy the SSH key from the Repo into a folder on your own computer
 2. Once the files are installed, open the folder in your personal workspace
